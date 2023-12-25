@@ -1,0 +1,104 @@
+{
+  "name": "lowcode-icons",
+  "version": "0.0.1",
+  "description": "lowcode-icons of tenx-ui and antd",
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "docs-dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:watch": "father dev",
+    "cli": "rm -rf lowcode && rm -rf src && cd cli && ts-node main.ts",
+    "dev": "dumi dev",
+    "docs:build": "dumi build",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install && dumi setup",
+    "prepublishOnly": "npm run cli && father doctor && npm run build",
+    "start": "npm run dev"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^5.1.4",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@tenx-ui/icon": "2.4.33",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/lint": "^4.0.0",
+    "commander": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "dumi": "^2.2.13",
+    "eslint": "^8.23.0",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "lodash": "^4.17.21",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "stylelint": "^14.9.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "88074479@qq.com"
+  ],
+  "yunti": {
+    "umd": {
+      "library": "TenxUiIconMaterials",
+      "entry": [
+        "/dist/umd/index.main.js"
+      ],
+      "externals": {
+        "@ant-design/icons": ">=4.7.0",
+        "react": ">=16.9.0",
+        "lodash": ">=4.17.21"
+      }
+    },
+    "lowCode": {
+      "meta": "/dist/umd/meta.main.js",
+      "editEntry": [
+        "/dist/umd/index.main.js"
+      ]
+    }
+  }
+}
