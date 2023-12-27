@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/lowcode-icons.svg?style=flat)](https://npmjs.org/package/lowcode-icons)
 [![NPM downloads](http://img.shields.io/npm/dm/lowcode-icons.svg?style=flat)](https://npmjs.org/package/lowcode-icons)
 
-lowcode-icons of tenx-ui and antd
+lowcode-icons of tenx-ui/icon and antd
 
 ## Usage
 
@@ -11,7 +11,12 @@ ni lowcode-icons
 
 ## Development
 
+- **Node.js v18.x**
+- **pnpm v8.x**
+
 ```bash
+$ npm i pnpm @antfu/ni -g
+
 # install dependencies
 $ ni
 

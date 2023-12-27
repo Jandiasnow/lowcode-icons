@@ -1,7 +1,11 @@
 {
-  "name": "lowcode-icons",
-  "version": "0.0.1",
+  "name": "@jn/lowcode-icons",
+  "version": "0.0.0-development",
   "description": "lowcode-icons of tenx-ui and antd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jandiasnow/lowcode-icons.git"
+  },
   "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,17 +14,18 @@
     "docs-dist"
   ],
   "scripts": {
-    "build": "father build",
+    "build": "npm run cli -t antd && father build",
     "build:watch": "father dev",
     "cli": "rm -rf lowcode && rm -rf src && cd cli && ts-node main.ts",
-    "dev": "dumi dev",
+    "dev": "npm run cli -t antd && dumi dev",
     "docs:build": "dumi build",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
-    "prepublishOnly": "npm run cli && father doctor && npm run build",
+    "prepublishOnly": "father doctor && npm run build",
+    "semantic-release": "semantic-release",
     "start": "npm run dev"
   },
   "commitlint": {
@@ -49,13 +54,15 @@
     "@ant-design/icons": "^5.1.4",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@tenx-ui/icon": "2.4.33",
+    "@semantic-release/git": "^9.0.0",
     "@types/node": "^20.10.5",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
     "commander": "^11.0.0",
+    "conventional-changelog-cmyr-config": "^1.2.3",
     "cross-env": "^7.0.3",
+    "dotenv-cli": "^4.0.0",
     "dumi": "^2.2.13",
     "eslint": "^8.23.0",
     "father": "^4.1.0",
@@ -67,6 +74,7 @@
     "prettier-plugin-packagejson": "^2.2.18",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "semantic-release": "^22.0.12",
     "stylelint": "^14.9.1",
     "ts-node": "^10.9.1",
     "tslib": "^2.6.2",
@@ -75,6 +83,10 @@
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.1.0"
   },
   "publishConfig": {
     "access": "public"
