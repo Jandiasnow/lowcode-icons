@@ -11,7 +11,8 @@ import initMeta from './files/meta';
 const program = new Command();
 
 type Types = string[];
-const INIT_TYPES: Types = ['tenx', 'antd'];
+// const INIT_TYPES: Types = ['tenx', 'antd'];
+const INIT_TYPES: Types = ['antd'];
 
 const main = async (configs: Config[]) => {
   // 初始化 index 文件

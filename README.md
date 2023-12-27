@@ -11,7 +11,12 @@ ni lowcode-icons
 
 ## Development
 
+- **Node.js v18.x**
+- **pnpm v8.x**
+
 ```bash
+$ npm i pnpm @antfu/ni -g
+
 # install dependencies
 $ ni
 

@@ -76,7 +76,7 @@ const outPutLowcodeTemplate = ({ name, config }) => {
 
   return `import * as React from 'react';
 import { createElement } from 'react';
-import '@tenx-ui/icon/assets/index.css';
+// import '@tenx-ui/icon/assets/index.css';
 import {${name}} from '${config.INPUT_PACKAGE_NAME}';
 // 获取组件优先级
 const getPriority = (componentName) => {
